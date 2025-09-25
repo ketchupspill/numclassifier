@@ -4,6 +4,7 @@ from torchvision import datasets, transforms
 import torch.nn as nn
 import torch.optim as optim
 from models.simple_nn import SimpleNN
+from models.model2 import MDL
 
 # --- Hyperparameters ---
 batch_size = 64
@@ -17,7 +18,7 @@ train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
 # --- Model ---
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = SimpleNN().to(device)
+model = MDL().to(device)
 
 # --- Loss & optimizer ---
 criterion = nn.CrossEntropyLoss()

@@ -1,11 +1,12 @@
 import torch
 from models.simple_nn import SimpleNN
+from models.model2 import MDL
 from PIL import Image
 import torchvision.transforms as transforms
 
 # --- 1. Load the trained model ---
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = SimpleNN().to(device)
+model = MDL().to(device)
 model.load_state_dict(torch.load("mnist_model.pth", map_location=device))
 model.eval()  # evaluation mode
 

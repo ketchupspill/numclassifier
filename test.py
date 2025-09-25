@@ -2,10 +2,11 @@ import torch
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 from models.simple_nn import SimpleNN
+from models.model2 import MDL
 
 # --- Load model ---
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-model = SimpleNN().to(device)
+model = MDL().to(device)
 model.load_state_dict(torch.load("mnist_model.pth", map_location=device))
 model.eval()
 
